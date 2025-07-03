@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mavis Legacy Foundation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1A237E 0%, #3949AB 40%, #B3CFFF 80%, #F4F6FA 100%);
+            color: #232946;
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 950px;
+            margin: 48px auto 32px auto;
+            background: #F4F6FA; /* Softened from pure white */
+            box-shadow: 0 8px 38px 0 rgba(26,35,126,0.12), 0 1.5px 3px rgba(57,73,171,0.08);
+            border-radius: 28px;
+            padding: 48px 34px 38px 34px;
+            backdrop-filter: blur(6px);
+        }
+        .logo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 0.5em;
+        }
+        .logo-img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 30px;
+            margin-bottom: 0.5em;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(26,35,126,0.15);
+            border: 2.5px solid #1A237E;
+        }
+        h1 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #1A237E;
+            font-size: 3.2em;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-bottom: 0.2em;
+            margin-top: 0;
+        }
+        .accent-line {
+            width: 90px;
+            height: 5px;
+            margin: 18px auto 34px auto;
+            background: linear-gradient(90deg, #1A237E 0%, #3949AB 30%, #B3CFFF 80%, #F4F6FA 100%);
+            border-radius: 5px;
+        }
+        .intro {
+            font-size: 1.22em;
+            text-align: center;
+            margin-bottom: 2.5em;
+            color: #3949AB;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        h2 {
+            color: #3949AB;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        ul {
+            font-size: 1.14em;
+            padding-left: 1.4em;
+            margin-bottom: 2.2em;
+            color: #232946;
+        }
+        li {
+            margin-bottom: 0.6em;
+            line-height: 1.6;
+        }
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+            margin-top: 18px;
+        }
+        .img-card {
+            background: rgba(26,35,126, 0.10);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(26,35,126, 0.11);
+            transition: transform 0.19s, box-shadow 0.19s;
+            width: 220px;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid #3949AB;
+            position: relative;
+        }
+        .img-card:hover {
+            transform: translateY(-8px) scale(1.025);
+            box-shadow: 0 10px 30px 0 rgba(57,73,171, 0.21);
+            border-color: #B3CFFF;
+        }
+        .img-card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 900px) {
+            .container {
+                padding: 18px 6px;
+            }
+            .images {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .img-card {
+                width: 96vw;
+                max-width: 400px;
+            }
+            .img-card img {
+                height: 140px;
+            }
+            .logo-img {
+                width: 90px;
+                height: 90px;
+                border-radius: 22px;
+            }
+        }
+        footer {
+            width: 100%;
+            text-align: center;
+            font-size: 1em;
+            color: #3949AB;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            font-family: 'Roboto', Arial, sans-serif;
+            opacity: 0.75;
+        }
+        ::selection {
+            background: #3949AB;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-wrap">
+            <img src="images/mavislogo.jpeg" alt="Foundation Logo" class="logo-img">
+        </div>
+        <h1>Mavis Legacy Foundation</h1>
+        <div class="accent-line"></div>
+        <div class="intro">
+            Welcome to the Mavis Legacy Foundation! We are dedicated to making a positive impact in our community by supporting those in need.
+        </div>
+        
+<h2>Who We Donate To</h2>
+<ul>
+    <li><strong>Local Orphanages:</strong> Providing food, education, and shelter for children in need.</li>
+    <li><strong>Health Clinics:</strong> Supporting access to medical supplies and care in underserved communities.</li>
+    <li><strong>Educational Programs:</strong> Funding scholarships and school supplies for underprivileged students.</li>
+    <li><strong>Community Food Banks:</strong> Ensuring families have access to nutritious meals.</li>
+</ul>
+
+        <div class="images">
+            
+    <div class="img-card">
+        <img src="images/givingtopoor.jpg" alt="Charity work image">
+    </div>
+    
+
+    <div class="img-card">
+        <img src="images/money.jpg" alt="Charity work image">
+    </div>
+    
+
+    <div class="img-card">
+        <img src="images/studentaid.jpg" alt="Charity work image">
+    </div>
+    
+
+    <div class="img-card">
+        <img src="images/happyman.jpg" alt="Charity work image">
+    </div>
+    
+
+    <div class="img-card">
+        <img src="images/happylady.jpg" alt="Charity work image">
+    </div>
+    
+
+    <div class="img-card">
+        <img src="images/foodbank.jpg" alt="Charity work image">
+    </div>
+    
+        </div>
+    </div>
+    <footer>
+        &copy; Mavis Legacy Foundation 2025. All rights reserved.
+    </footer>
+</body>
+</html>
