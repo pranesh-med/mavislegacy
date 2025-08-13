@@ -5,123 +5,182 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Mavis Legacy Foundation</title>
   <link rel="icon" href="🌟">
+  <!-- Google Fonts for Enthusiastic Look -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Quicksand:wght@600&display=swap" rel="stylesheet">
   <style>
     html, body {
       height: 100%;
       min-height: 100vh;
-      width: 100vw;
       margin: 0;
       padding: 0;
       background: linear-gradient(135deg, #f3f8ff 0%, #e7eaf6 100%);
-      font-family: 'Inter', Arial, sans-serif;
+      font-family: 'Quicksand', Arial, sans-serif;
+      box-sizing: border-box;
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      max-width: 100vw;
+      overflow-x: hidden;
     }
     .main-title {
-      font-size: 3.2rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: #1a237e;
+      font-family: 'Baloo 2', cursive, sans-serif;
+      font-size: 3.3rem;
+      font-weight: 900;
+      letter-spacing: 2.5px;
+      color: #0d47a1;
       text-align: center;
-      margin-bottom: 0.5rem;
-      margin-top: 2.2rem;
+      margin-bottom: 0.7rem;
+      margin-top: 2.5rem;
+      text-shadow: 2px 2px 10px #e7eaf6, 0 2px 4px #b3c0d6;
+      animation: popIn 1s cubic-bezier(.17,.67,.83,.67);
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.7); opacity: 0;}
+      80% { transform: scale(1.05);}
+      100% { transform: scale(1); opacity: 1;}
     }
     .subtitle {
+      font-family: 'Quicksand', Arial, sans-serif;
       color: #3949ab;
-      font-size: 1.5rem;
-      font-weight: 500;
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.7rem;
+      text-shadow: 0 1px 4px #e7eaf6;
     }
     .section {
       background: #fff;
       border-radius: 22px;
-      box-shadow: 0 8px 36px 0 rgba(60,60,80,0.08);
-      padding: 2.5rem 3.5vw 2rem 3.5vw;
-      margin: 2rem 2vw 2.5rem 2vw;
-      max-width: 96vw;
-      width: 96vw;
+      box-shadow: 0 8px 36px 0 rgba(60,60,80,0.10);
+      padding: 2.7rem 4vw 2.3rem 4vw;
+      margin: 2rem auto 2.7rem auto;
+      max-width: 950px;
+      width: 95vw;
+      font-family: 'Quicksand', Arial, sans-serif;
+      font-size: 1.16rem;
+      font-weight: 600;
+      color: #1a237e;
+      box-sizing: border-box;
     }
     .section-title {
-      font-size: 1.45rem;
+      font-size: 1.7rem;
       color: #283593;
-      font-weight: 700;
+      font-weight: 900;
+      letter-spacing: 1px;
+      padding-bottom: 0.4rem;
+      font-family: 'Baloo 2', cursive, sans-serif;
       margin-bottom: 1.15rem;
-      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 6px #e7eaf6;
     }
     ul {
-      font-size: 1.08rem;
-      color: #333B5E;
+      font-size: 1.18rem;
+      color: #205271;
       padding-left: 1.4rem;
+      font-family: 'Quicksand', Arial, sans-serif;
+      font-weight: 600;
     }
     .mission-list li {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
       padding-left: 0.1rem;
     }
     .motivation {
       font-style: italic;
-      font-size: 1.12rem;
-      color: #1a237e;
+      font-size: 1.3rem;
+      font-family: 'Baloo 2', cursive, sans-serif;
+      color: #1565c0;
       text-align: center;
-      margin: 1.5rem 0 2rem 0;
-      border-left: 4px solid #7986cb;
-      padding-left: 1.2rem;
+      margin: 1.8rem auto 2.3rem auto;
+      border-left: 6px solid #7986cb;
+      padding-left: 1.5rem;
       background: #f7f9fc;
-      border-radius: 12px;
-      max-width: 70vw;
-      margin-left: auto;
-      margin-right: auto;
+      border-radius: 14px;
+      max-width: 900px;
+      font-weight: 700;
+      text-shadow: 0 2px 10px #e7eaf6;
+      box-sizing: border-box;
     }
     .impact-section {
       background: #f7f9fc;
       border-radius: 20px;
-      box-shadow: 0 6px 30px 0 rgba(60,60,80,0.06);
-      padding: 2.2rem 2vw 2rem 2vw;
-      margin: 2rem 2vw 2.5rem 2vw;
-      max-width: 96vw;
-      width: 96vw;
+      box-shadow: 0 6px 30px 0 rgba(60,60,80,0.07);
+      padding: 2.5rem 4vw 2.3rem 4vw;
+      margin: 2rem auto 2.7rem auto;
+      max-width: 950px;
+      width: 95vw;
+      font-family: 'Quicksand', Arial, sans-serif;
+      box-sizing: border-box;
     }
     .impact-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #26318f;
-      margin-bottom: 0.6rem;
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: #0d47a1;
+      margin-bottom: 0.7rem;
+      font-family: 'Baloo 2', cursive, sans-serif;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 10px #e7eaf6;
     }
     .impact-desc {
       color: #263238;
-      font-size: 1.05rem;
-      margin-bottom: 1.25rem;
+      font-size: 1.13rem;
+      margin-bottom: 1.4rem;
+      font-family: 'Quicksand', Arial, sans-serif;
+      font-weight: 600;
     }
     table {
       width: 100%;
       border-collapse: collapse;
       margin: 1.2rem 0 1.8rem 0;
-      font-size: 1.04rem;
+      font-size: 1.08rem;
+      font-family: 'Quicksand', Arial, sans-serif;
+      color: #0d214f;
+      background: #f9fafc;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+      table-layout: fixed;
+      word-break: break-word;
     }
     th, td {
       border: 1px solid #c5cae9;
       padding: 0.8rem 0.5rem;
       text-align: left;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
     th {
       background: #e8eaf6;
-      color: #222b5f;
-      font-weight: 700;
+      color: #0d47a1;
+      font-weight: 900;
+      font-family: 'Baloo 2', cursive, sans-serif;
+      letter-spacing: 0.5px;
+      font-size: 1.13rem;
     }
     tr:nth-child(even) {
       background: #f4f6fa;
     }
     .logo {
-      width: 110px;
-      margin: 2rem auto 1rem auto;
+      width: 120px;
+      margin: 2rem auto 1.2rem auto;
       display: block;
       border-radius: 18px;
-      box-shadow: 0 6px 32px rgba(26,35,126,0.08);
+      box-shadow: 0 6px 32px rgba(26,35,126,0.10);
       background: #fff;
       padding: 1.2rem;
+      animation: popIn 1.1s cubic-bezier(.17,.67,.83,.67);
+      max-width: 90vw;
+      box-sizing: border-box;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 1050px) {
+      .section, .impact-section, .motivation { max-width: 99vw; width: 99vw; }
+      table { font-size: 0.96rem; }
+    }
+    @media (max-width: 700px) {
       .main-title { font-size: 2.1rem; }
-      .section, .impact-section { padding: 1.2rem 1vw; }
-      .motivation { font-size: 1rem; padding-left: 0.7rem; }
+      .section, .impact-section, .motivation { padding: 1.2rem 1vw; max-width: 100vw; width: 100vw; }
+      table, th, td { font-size: 0.90rem; }
+      .section-title, .impact-title { font-size: 1.15rem; }
+      .logo { width: 70px; }
     }
   </style>
 </head>
@@ -198,7 +257,7 @@
       These students embody the spirit of perseverance and with our foundation’s support, are charting courses that will touch countless lives.
     </div>
   </div>
-  <div style="text-align:center; color:#757de8; font-size:1.05rem; margin-top:2.2rem;">
+  <div style="text-align:center; color:#757de8; font-size:1.05rem; margin-top:2.2rem; font-family:'Quicksand',Arial,sans-serif;">
     © 2025 Mavis Legacy Foundation. All rights reserved.
   </div>
 </body>
