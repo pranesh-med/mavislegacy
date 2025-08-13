@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,59 +35,28 @@
       align-items: center;
       height: 100vh;
     }
-    .left-decoration {
-      left: 0;
-      justify-content: flex-start;
-    }
-    .right-decoration {
-      right: 0;
-      justify-content: flex-end;
-    }
-    /* All SVGs (side and bg) use the same color and opacity */
-    .side-svg,
-    .bg-svg {
-      stroke: #8db7e6;
-      opacity: 0.45;
-      fill: none;
-      stroke-width: 3px;
-      background: none;
-      pointer-events: none;
-      transition: opacity 0.1s;
-    }
+    .left-decoration { left: 0; }
+    .right-decoration { right: 0; }
     .side-svg {
       position: absolute;
+      opacity: 0.45;
       width: 170px;
       height: auto;
+      stroke: #8db7e6;
+      fill: none;
+      stroke-width: 3.2px;
+      filter: none;
       z-index: 1;
+      background: none;
+      transition: opacity 0.1s;
     }
-    .svg-graduation {
-      top: 28%;
-      left: 30px;
-    }
-    .svg-star {
-      top: 20%;
-      left: 108px;
-      width: 55px;
-    }
-    .svg-people {
-      bottom: 23%;
-      left: 13px;
-      width: 140px;
-    }
-    .right-decoration .svg-graduation,
-    .right-decoration .svg-star {
-      left: unset;
-      right: 30px;
-    }
-    .right-decoration .svg-star {
-      right: 108px;
-    }
-    .right-decoration .svg-people {
-      left: unset;
-      right: 13px;
-      transform: scaleX(-1);
-    }
-    /* --- Sprinkled Background SVGs --- */
+    .svg-graduation { top: 12%; left: 18px; }
+    .svg-star { top: 44%; left: 40px; width: 55px; }
+    .svg-people { bottom: 8%; left: 26px; width: 140px; }
+    .right-decoration .svg-graduation { top: 12%; right: 18px; left: unset; }
+    .right-decoration .svg-star { top: 44%; right: 40px; left: unset; width: 55px; }
+    .right-decoration .svg-people { bottom: 8%; right: 26px; left: unset; transform: scaleX(-1); }
+    /* --- Even background SVG grid --- */
     .background-svg-decoration {
       position: fixed;
       inset: 0;
@@ -96,19 +64,30 @@
       height: 100vh;
       pointer-events: none;
       z-index: 0;
+      /* for debug: outline: 1px dashed red; */
     }
     .bg-svg {
       position: absolute;
+      stroke: #8db7e6;
+      opacity: 0.33;
+      fill: none;
+      stroke-width: 3.1px;
+      pointer-events: none;
     }
-    .star1 { top: 7vh; left: 13vw; width: 65px; height: 65px; transform: rotate(-8deg);}
-    .cap1 { top: 18vh; left: 15vw; width: 170px; height: 90px; transform: rotate(-4deg);}
-    .people1 { top: 54vh; left: 9vw; width: 105px; height: 80px;}
-    .star2 { top: 44vh; right: 18vw; width: 45px; height: 45px; transform: rotate(15deg);}
-    .cap2 { bottom: 17vh; right: 14vw; width: 120px; height: 65px; transform: rotate(7deg);}
-    .people2 { bottom: 9vh; right: 13vw; width: 95px; height: 70px;}
-    .star3 { top: 70vh; left: 16vw; width: 36px; height: 36px; transform: rotate(-18deg);}
-    .cap3 { top: 60vh; right: 13vw; width: 80px; height: 44px; transform: rotate(13deg);}
-    .people3 { top: 33vh; right: 11vw; width: 80px; height: 50px;}
+    /* Aligned evenly in a grid-like pattern, 3 columns x 3 rows */
+    .bg1 { top: 8vh; left: 13vw; width: 65px; height: 65px; }
+    .bg2 { top: 8vh; left: 47vw; width: 65px; height: 65px; }
+    .bg3 { top: 8vh; right: 13vw; width: 65px; height: 65px; }
+    .bg4 { top: 38vh; left: 13vw; width: 65px; height: 65px; }
+    .bg5 { top: 38vh; left: 47vw; width: 65px; height: 65px; }
+    .bg6 { top: 38vh; right: 13vw; width: 65px; height: 65px; }
+    .bg7 { bottom: 8vh; left: 13vw; width: 65px; height: 65px; }
+    .bg8 { bottom: 8vh; left: 47vw; width: 65px; height: 65px; }
+    .bg9 { bottom: 8vh; right: 13vw; width: 65px; height: 65px; }
+    /* Different icons for variety but always alternating in a grid */
+    .bg1, .bg5, .bg9 { /* Star */ }
+    .bg2, .bg4, .bg8 { /* Graduation Cap */ }
+    .bg3, .bg6, .bg7 { /* People */ }
     @media (max-width: 1050px) {
       .side-decoration { display: none; }
       .background-svg-decoration { display: none; }
@@ -282,12 +261,12 @@
   </style>
 </head>
 <body>
-  <!-- Sprinkled background SVGs -->
   <div class="background-svg-decoration">
-    <svg class="bg-svg star1" viewBox="0 0 48 48">
+    <!-- Row 1 -->
+    <svg class="bg-svg bg1" viewBox="0 0 48 48">
       <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
     </svg>
-    <svg class="bg-svg cap1" viewBox="0 0 120 60">
+    <svg class="bg-svg bg2" viewBox="0 0 120 60">
       <polygon points="15,30 60,10 105,30 60,50" />
       <polyline points="15,30 60,50 60,57" />
       <polyline points="105,30 60,50" />
@@ -295,17 +274,15 @@
       <line x1="97" y1="34" x2="97" y2="48"/>
       <ellipse cx="97" cy="54" rx="6" ry="6"/>
     </svg>
-    <svg class="bg-svg people1" viewBox="0 0 64 48">
+    <svg class="bg-svg bg3" viewBox="0 0 64 48">
       <circle cx="16" cy="16" r="12"/>
       <circle cx="40" cy="16" r="12"/>
       <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
       <line x1="8" y1="40" x2="8" y2="48"/>
       <line x1="56" y1="40" x2="56" y2="48"/>
     </svg>
-    <svg class="bg-svg star2" viewBox="0 0 48 48">
-      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
-    </svg>
-    <svg class="bg-svg cap2" viewBox="0 0 120 60">
+    <!-- Row 2 -->
+    <svg class="bg-svg bg4" viewBox="0 0 120 60">
       <polygon points="15,30 60,10 105,30 60,50" />
       <polyline points="15,30 60,50 60,57" />
       <polyline points="105,30 60,50" />
@@ -313,17 +290,25 @@
       <line x1="97" y1="34" x2="97" y2="48"/>
       <ellipse cx="97" cy="54" rx="6" ry="6"/>
     </svg>
-    <svg class="bg-svg people2" viewBox="0 0 64 48">
+    <svg class="bg-svg bg5" viewBox="0 0 48 48">
+      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
+    </svg>
+    <svg class="bg-svg bg6" viewBox="0 0 64 48">
       <circle cx="16" cy="16" r="12"/>
       <circle cx="40" cy="16" r="12"/>
       <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
       <line x1="8" y1="40" x2="8" y2="48"/>
       <line x1="56" y1="40" x2="56" y2="48"/>
     </svg>
-    <svg class="bg-svg star3" viewBox="0 0 48 48">
-      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
+    <!-- Row 3 -->
+    <svg class="bg-svg bg7" viewBox="0 0 64 48">
+      <circle cx="16" cy="16" r="12"/>
+      <circle cx="40" cy="16" r="12"/>
+      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
+      <line x1="8" y1="40" x2="8" y2="48"/>
+      <line x1="56" y1="40" x2="56" y2="48"/>
     </svg>
-    <svg class="bg-svg cap3" viewBox="0 0 120 60">
+    <svg class="bg-svg bg8" viewBox="0 0 120 60">
       <polygon points="15,30 60,10 105,30 60,50" />
       <polyline points="15,30 60,50 60,57" />
       <polyline points="105,30 60,50" />
@@ -331,15 +316,11 @@
       <line x1="97" y1="34" x2="97" y2="48"/>
       <ellipse cx="97" cy="54" rx="6" ry="6"/>
     </svg>
-    <svg class="bg-svg people3" viewBox="0 0 64 48">
-      <circle cx="16" cy="16" r="12"/>
-      <circle cx="40" cy="16" r="12"/>
-      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
-      <line x1="8" y1="40" x2="8" y2="48"/>
-      <line x1="56" y1="40" x2="56" y2="48"/>
+    <svg class="bg-svg bg9" viewBox="0 0 48 48">
+      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
     </svg>
   </div>
-  <!-- Left Side SVGs -->
+  <!-- Left and Right Side SVGs (unchanged) -->
   <div class="side-decoration left-decoration">
     <svg class="side-svg svg-star" viewBox="0 0 48 48">
       <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
@@ -360,7 +341,6 @@
       <line x1="56" y1="40" x2="56" y2="44"/>
     </svg>
   </div>
-  <!-- Right Side SVGs -->
   <div class="side-decoration right-decoration">
     <svg class="side-svg svg-star" viewBox="0 0 48 48">
       <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
@@ -457,4 +437,3 @@
   </div>
 </body>
 </html>
-```
