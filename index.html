@@ -1,210 +1,245 @@
+import streamlit as st
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Mavis Legacy Foundation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+st.set_page_config(
+    page_title="Mavis Legacy Foundation",
+    page_icon="🌟",
+    layout="wide",
+    initial_sidebar_state="auto"
+)
+
+# Full-width and modern CSS
+st.markdown("""
     <style>
-        body {
-            background: linear-gradient(135deg, #1A237E 0%, #3949AB 40%, #B3CFFF 80%, #F4F6FA 100%);
-            color: #232946;
-            font-family: 'Roboto', Arial, sans-serif;
-            margin: 0;
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 950px;
-            margin: 48px auto 32px auto;
-            background: #F4F6FA; /* Softened from pure white */
-            box-shadow: 0 8px 38px 0 rgba(26,35,126,0.12), 0 1.5px 3px rgba(57,73,171,0.08);
-            border-radius: 28px;
-            padding: 48px 34px 38px 34px;
-            backdrop-filter: blur(6px);
-        }
-        .logo-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 0.5em;
-        }
-        .logo-img {
-            width: 140px;
-            height: 140px;
-            object-fit: contain;
-            border-radius: 30px;
-            margin-bottom: 0.5em;
-            background: #fff;
-            box-shadow: 0 2px 12px rgba(26,35,126,0.15);
-            border: 2.5px solid #1A237E;
-        }
-        h1 {
-            font-family: 'Montserrat', Arial, sans-serif;
-            color: #1A237E;
-            font-size: 3.2em;
-            font-weight: 700;
-            text-align: center;
-            letter-spacing: 2px;
-            margin-bottom: 0.2em;
-            margin-top: 0;
-        }
-        .accent-line {
-            width: 90px;
-            height: 5px;
-            margin: 18px auto 34px auto;
-            background: linear-gradient(90deg, #1A237E 0%, #3949AB 30%, #B3CFFF 80%, #F4F6FA 100%);
-            border-radius: 5px;
-        }
-        .intro {
-            font-size: 1.22em;
-            text-align: center;
-            margin-bottom: 2.5em;
-            color: #3949AB;
-            font-family: 'Roboto', Arial, sans-serif;
-        }
-        h2 {
-            color: #3949AB;
-            margin-top: 1em;
-            margin-bottom: 0.5em;
-            font-family: 'Montserrat', Arial, sans-serif;
-            font-size: 1.5em;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        ul {
-            font-size: 1.14em;
-            padding-left: 1.4em;
-            margin-bottom: 2.2em;
-            color: #232946;
-        }
-        li {
-            margin-bottom: 0.6em;
-            line-height: 1.6;
-        }
-        .images {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 28px;
-            margin-top: 18px;
-        }
-        .img-card {
-            background: rgba(26,35,126, 0.10);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 2px 16px rgba(26,35,126, 0.11);
-            transition: transform 0.19s, box-shadow 0.19s;
-            width: 220px;
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1.5px solid #3949AB;
-            position: relative;
-        }
-        .img-card:hover {
-            transform: translateY(-8px) scale(1.025);
-            box-shadow: 0 10px 30px 0 rgba(57,73,171, 0.21);
-            border-color: #B3CFFF;
-        }
-        .img-card img {
-            width: 100%;
-            height: 170px;
-            object-fit: cover;
-            display: block;
-        }
-        @media (max-width: 900px) {
-            .container {
-                padding: 18px 6px;
-            }
-            .images {
-                flex-direction: column;
-                gap: 18px;
-            }
-            .img-card {
-                width: 96vw;
-                max-width: 400px;
-            }
-            .img-card img {
-                height: 140px;
-            }
-            .logo-img {
-                width: 90px;
-                height: 90px;
-                border-radius: 22px;
-            }
-        }
-        footer {
-            width: 100%;
-            text-align: center;
-            font-size: 1em;
-            color: #3949AB;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            font-family: 'Roboto', Arial, sans-serif;
-            opacity: 0.75;
-        }
-        ::selection {
-            background: #3949AB;
-            color: #fff;
-        }
+    html, body, .main, .block-container {
+        height: 100%;
+        min-height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #f3f8ff 0%, #e7eaf6 100%);
+    }
+    .main {
+        padding: 0 !important;
+    }
+    .block-container {
+        padding: 0 !important;
+        margin: 0 auto !important;
+        max-width: none !important;
+        width: 100vw !important;
+    }
+    .main-title {
+        font-size: 3.2rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: #1a237e;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        margin-top: 2.2rem;
+    }
+    .subtitle {
+        color: #3949ab;
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+    .section {
+        background: #fff;
+        border-radius: 22px;
+        box-shadow: 0 8px 36px 0 rgba(60,60,80,0.08);
+        padding: 2.5rem 3.5vw 2rem 3.5vw;
+        margin: 2rem 2vw 2.5rem 2vw;
+        max-width: 96vw;
+        width: 96vw;
+    }
+    .section-title {
+        font-size: 1.45rem;
+        color: #283593;
+        font-weight: 700;
+        margin-bottom: 1.15rem;
+        letter-spacing: 0.5px;
+    }
+    ul {
+        font-size: 1.08rem;
+        color: #333B5E;
+        padding-left: 1.4rem;
+    }
+    .mission-list li {
+        margin-bottom: 0.6rem;
+        padding-left: 0.1rem;
+    }
+    .motivation {
+        font-style: italic;
+        font-size: 1.12rem;
+        color: #1a237e;
+        text-align: center;
+        margin: 1.5rem 0 2rem 0;
+        border-left: 4px solid #7986cb;
+        padding-left: 1.2rem;
+        background: #f7f9fc;
+        border-radius: 12px;
+        max-width: 70vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .impact-section {
+        background: #f7f9fc;
+        border-radius: 20px;
+        box-shadow: 0 6px 30px 0 rgba(60,60,80,0.06);
+        padding: 2.2rem 2vw 2rem 2vw;
+        margin: 2rem 2vw 2.5rem 2vw;
+        max-width: 96vw;
+        width: 96vw;
+    }
+    .impact-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #26318f;
+        margin-bottom: 0.6rem;
+    }
+    .impact-desc {
+        color: #263238;
+        font-size: 1.05rem;
+        margin-bottom: 1.25rem;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0 1.8rem 0;
+        font-size: 1.04rem;
+    }
+    th, td {
+        border: 1px solid #c5cae9;
+        padding: 0.8rem 0.5rem;
+        text-align: left;
+    }
+    th {
+        background: #e8eaf6;
+        color: #222b5f;
+        font-weight: 700;
+    }
+    tr:nth-child(even) {
+        background: #f4f6fa;
+    }
+    .logo {
+        width: 110px;
+        margin: 2rem auto 1rem auto;
+        display: block;
+        border-radius: 18px;
+        box-shadow: 0 6px 32px rgba(26,35,126,0.08);
+        background: #fff;
+        padding: 1.2rem;
+    }
+    @media (max-width: 900px) {
+        .main-title { font-size: 2.1rem; }
+        .section, .impact-section { padding: 1.2rem 1vw; }
+        .motivation { font-size: 1rem; padding-left: 0.7rem; }
+    }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="logo-wrap">
-            <img src="images/mavislogo.jpeg" alt="Foundation Logo" class="logo-img">
-        </div>
-        <h1>Mavis Legacy Foundation</h1>
-        <div class="accent-line"></div>
-        <div class="intro">
-            Welcome to the Mavis Legacy Foundation! We are dedicated to making a positive impact in our community by supporting those in need.
-        </div>
-        
-<h2>Who We Donate To</h2>
-<ul>
-    <li><strong>Local Orphanages:</strong> Providing food, education, and shelter for children in need.</li>
-    <li><strong>Health Clinics:</strong> Supporting access to medical supplies and care in underserved communities.</li>
-    <li><strong>Educational Programs:</strong> Funding scholarships and school supplies for underprivileged students.</li>
-    <li><strong>Community Food Banks:</strong> Ensuring families have access to nutritious meals.</li>
+""", unsafe_allow_html=True)
+
+# Logo
+st.markdown(
+    '<img class="logo" src="https://i.imgur.com/b4g8usM.png" alt="Mavis Legacy Foundation Logo"/>',
+    unsafe_allow_html=True
+)
+
+# Main Title
+st.markdown('<div class="main-title">Mavis Legacy Foundation</div>', unsafe_allow_html=True)
+
+# Subtitle
+st.markdown(
+    '<div class="subtitle">Making a Difference That Lasts</div>',
+    unsafe_allow_html=True
+)
+
+# Mission Section
+st.markdown('<div class="section">', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Our Mission</div>', unsafe_allow_html=True)
+st.markdown("""
+<ul class="mission-list">
+  <li>Empower and uplift underserved communities through education, resources and support. We are dedicated to creating lasting positive impact by funding initiatives that promote opportunity, equality, and personal growth for individuals and families in need.</li>
+  <li>We are dedicated to fostering spiritual growth, cultural heritage, and sustainable maintenance of temples to benefit present and future generations.</li>
+  <li>Provide timely support, resources, and hope to individuals and communities facing distress.</li>
 </ul>
+""", unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
-        <div class="images">
-            
-    <div class="img-card">
-        <img src="images/givingtopoor.jpg" alt="Charity work image">
-    </div>
-    
+# Motivation Statement
+st.markdown(
+    '<div class="motivation">'
+    '“We believe that uplifting those in need is not only the right thing to do but also a powerful way to carry forward our legacy of compassion and care.”'
+    '</div>',
+    unsafe_allow_html=True
+)
 
-    <div class="img-card">
-        <img src="images/money.jpg" alt="Charity work image">
-    </div>
-    
+# Real Impact Stories Section
+st.markdown('<div class="impact-section">', unsafe_allow_html=True)
+st.markdown('<div class="impact-title">Real Impact Stories: Empowering Dreams Through Education</div>', unsafe_allow_html=True)
+st.markdown('<div class="impact-desc">We are proud to support talented students in pursuing their passions—dreams they might not have realized without our help. Through our commitment, we strive to create opportunities that shape futures and strengthen communities.</div>', unsafe_allow_html=True)
 
-    <div class="img-card">
-        <img src="images/studentaid.jpg" alt="Charity work image">
-    </div>
-    
+# Impact Table
+st.markdown("""
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Field of Study</th>
+      <th>Timeline</th>
+      <th>Status</th>
+      <th>College / Location</th>
+      <th>Funding Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sivesh</td>
+      <td>Doctor (M.B.B.S)</td>
+      <td>2021–2026</td>
+      <td>Ongoing</td>
+      <td>ESIC Medical College, Chennai, India</td>
+      <td>Tuition Fee, Boarding, Lodging</td>
+    </tr>
+    <tr>
+      <td>Keerthana</td>
+      <td>Doctor (M.B.B.S)</td>
+      <td>2021–2026</td>
+      <td>Ongoing</td>
+      <td>Coimbatore Medical College, Coimbatore, India</td>
+      <td>Tuition Fee, Boarding, Lodging</td>
+    </tr>
+    <tr>
+      <td>Nirmala</td>
+      <td>Doctor (M.B.B.S)</td>
+      <td>2022–2027</td>
+      <td>Ongoing</td>
+      <td>Coimbatore Medical College, Coimbatore, India</td>
+      <td>Tuition Fee, Boarding, Lodging</td>
+    </tr>
+    <tr>
+      <td>Arun</td>
+      <td>B.Sc Visual Effects</td>
+      <td>2024–2027</td>
+      <td>Ongoing</td>
+      <td>Davinci Media College, Chennai, India</td>
+      <td>Tuition Fee, Boarding, Lodging</td>
+    </tr>
+  </tbody>
+</table>
+""", unsafe_allow_html=True)
 
-    <div class="img-card">
-        <img src="images/happyman.jpg" alt="Charity work image">
-    </div>
-    
+st.markdown(
+    '<div class="impact-desc">'
+    "These students embody the spirit of perseverance and with our foundation’s support, are charting courses that will touch countless lives."
+    '</div>',
+    unsafe_allow_html=True
+)
+st.markdown('</div>', unsafe_allow_html=True)
 
-    <div class="img-card">
-        <img src="images/happylady.jpg" alt="Charity work image">
-    </div>
-    
-
-    <div class="img-card">
-        <img src="images/foodbank.jpg" alt="Charity work image">
-    </div>
-    
-        </div>
-    </div>
-    <footer>
-        &copy; Mavis Legacy Foundation 2025. All rights reserved.
-    </footer>
-</body>
-</html>
+# Footer
+st.markdown(
+    "<div style='text-align:center; color:#757de8; font-size:1.05rem; margin-top:2.2rem;'>"
+    "© 2025 Mavis Legacy Foundation. All rights reserved."
+    "</div>",
+    unsafe_allow_html=True
+)
