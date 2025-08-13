@@ -22,41 +22,7 @@
       overflow-x: hidden;
       position: relative;
     }
-    .side-decoration {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      width: 220px;
-      pointer-events: none;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      height: 100vh;
-    }
-    .left-decoration { left: 0; }
-    .right-decoration { right: 0; }
-    .side-svg {
-      position: absolute;
-      opacity: 0.45;
-      width: 170px;
-      height: auto;
-      stroke: #8db7e6;
-      fill: none;
-      stroke-width: 3.2px;
-      filter: none;
-      z-index: 1;
-      background: none;
-      transition: opacity 0.1s;
-    }
-    .svg-graduation { top: 12%; left: 18px; }
-    .svg-star { top: 44%; left: 40px; width: 55px; }
-    .svg-people { bottom: 8%; left: 26px; width: 140px; }
-    .right-decoration .svg-graduation { top: 12%; right: 18px; left: unset; }
-    .right-decoration .svg-star { top: 44%; right: 40px; left: unset; width: 55px; }
-    .right-decoration .svg-people { bottom: 8%; right: 26px; left: unset; transform: scaleX(-1); }
-    /* --- Even background SVG grid --- */
+    /* --- Centered, neat but playful SVG scatter --- */
     .background-svg-decoration {
       position: fixed;
       inset: 0;
@@ -64,7 +30,6 @@
       height: 100vh;
       pointer-events: none;
       z-index: 0;
-      /* for debug: outline: 1px dashed red; */
     }
     .bg-svg {
       position: absolute;
@@ -74,22 +39,17 @@
       stroke-width: 3.1px;
       pointer-events: none;
     }
-    /* Aligned evenly in a grid-like pattern, 3 columns x 3 rows */
-    .bg1 { top: 8vh; left: 13vw; width: 65px; height: 65px; }
-    .bg2 { top: 8vh; left: 47vw; width: 65px; height: 65px; }
-    .bg3 { top: 8vh; right: 13vw; width: 65px; height: 65px; }
-    .bg4 { top: 38vh; left: 13vw; width: 65px; height: 65px; }
-    .bg5 { top: 38vh; left: 47vw; width: 65px; height: 65px; }
-    .bg6 { top: 38vh; right: 13vw; width: 65px; height: 65px; }
-    .bg7 { bottom: 8vh; left: 13vw; width: 65px; height: 65px; }
-    .bg8 { bottom: 8vh; left: 47vw; width: 65px; height: 65px; }
-    .bg9 { bottom: 8vh; right: 13vw; width: 65px; height: 65px; }
-    /* Different icons for variety but always alternating in a grid */
-    .bg1, .bg5, .bg9 { /* Star */ }
-    .bg2, .bg4, .bg8 { /* Graduation Cap */ }
-    .bg3, .bg6, .bg7 { /* People */ }
+    /* Scatter positions: neat, playful, and mid-screen oriented */
+    .scatter1 { top: 8vh; left: 27vw; width: 65px; height: 65px; }
+    .scatter2 { top: 9vh; left: 46vw; width: 95px; height: 52px; }
+    .scatter3 { top: 8vh; right: 27vw; width: 65px; height: 65px; }
+    .scatter4 { top: 38vh; left: 22vw; width: 70px; height: 70px;}
+    .scatter5 { top: 33vh; left: 48vw; width: 95px; height: 52px;}
+    .scatter6 { top: 38vh; right: 22vw; width: 70px; height: 70px;}
+    .scatter7 { bottom: 8vh; left: 32vw; width: 65px; height: 65px;}
+    .scatter8 { bottom: 10vh; left: 52vw; width: 95px; height: 52px;}
+    .scatter9 { bottom: 8vh; right: 32vw; width: 65px; height: 65px;}
     @media (max-width: 1050px) {
-      .side-decoration { display: none; }
       .background-svg-decoration { display: none; }
       .section, .impact-section, .motivation { max-width: 99vw; width: 99vw; }
       table { font-size: 0.96rem; }
@@ -262,11 +222,12 @@
 </head>
 <body>
   <div class="background-svg-decoration">
-    <!-- Row 1 -->
-    <svg class="bg-svg bg1" viewBox="0 0 48 48">
+    <!-- Top left-ish -->
+    <svg class="bg-svg scatter1" viewBox="0 0 48 48">
       <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
     </svg>
-    <svg class="bg-svg bg2" viewBox="0 0 120 60">
+    <!-- Top center left -->
+    <svg class="bg-svg scatter2" viewBox="0 0 120 60">
       <polygon points="15,30 60,10 105,30 60,50" />
       <polyline points="15,30 60,50 60,57" />
       <polyline points="105,30 60,50" />
@@ -274,15 +235,20 @@
       <line x1="97" y1="34" x2="97" y2="48"/>
       <ellipse cx="97" cy="54" rx="6" ry="6"/>
     </svg>
-    <svg class="bg-svg bg3" viewBox="0 0 64 48">
+    <!-- Top center right -->
+    <svg class="bg-svg scatter3" viewBox="0 0 64 48">
       <circle cx="16" cy="16" r="12"/>
       <circle cx="40" cy="16" r="12"/>
       <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
       <line x1="8" y1="40" x2="8" y2="48"/>
       <line x1="56" y1="40" x2="56" y2="48"/>
     </svg>
-    <!-- Row 2 -->
-    <svg class="bg-svg bg4" viewBox="0 0 120 60">
+    <!-- Middle left -->
+    <svg class="bg-svg scatter4" viewBox="0 0 48 48">
+      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
+    </svg>
+    <!-- Center, slightly below title -->
+    <svg class="bg-svg scatter5" viewBox="0 0 120 60">
       <polygon points="15,30 60,10 105,30 60,50" />
       <polyline points="15,30 60,50 60,57" />
       <polyline points="105,30 60,50" />
@@ -290,25 +256,20 @@
       <line x1="97" y1="34" x2="97" y2="48"/>
       <ellipse cx="97" cy="54" rx="6" ry="6"/>
     </svg>
-    <svg class="bg-svg bg5" viewBox="0 0 48 48">
+    <!-- Middle right -->
+    <svg class="bg-svg scatter6" viewBox="0 0 64 48">
+      <circle cx="16" cy="16" r="12"/>
+      <circle cx="40" cy="16" r="12"/>
+      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
+      <line x1="8" y1="40" x2="8" y2="48"/>
+      <line x1="56" y1="40" x2="56" y2="48"/>
+    </svg>
+    <!-- Lower left -->
+    <svg class="bg-svg scatter7" viewBox="0 0 48 48">
       <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
     </svg>
-    <svg class="bg-svg bg6" viewBox="0 0 64 48">
-      <circle cx="16" cy="16" r="12"/>
-      <circle cx="40" cy="16" r="12"/>
-      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
-      <line x1="8" y1="40" x2="8" y2="48"/>
-      <line x1="56" y1="40" x2="56" y2="48"/>
-    </svg>
-    <!-- Row 3 -->
-    <svg class="bg-svg bg7" viewBox="0 0 64 48">
-      <circle cx="16" cy="16" r="12"/>
-      <circle cx="40" cy="16" r="12"/>
-      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
-      <line x1="8" y1="40" x2="8" y2="48"/>
-      <line x1="56" y1="40" x2="56" y2="48"/>
-    </svg>
-    <svg class="bg-svg bg8" viewBox="0 0 120 60">
+    <!-- Lower center right -->
+    <svg class="bg-svg scatter8" viewBox="0 0 120 60">
       <polygon points="15,30 60,10 105,30 60,50" />
       <polyline points="15,30 60,50 60,57" />
       <polyline points="105,30 60,50" />
@@ -316,49 +277,13 @@
       <line x1="97" y1="34" x2="97" y2="48"/>
       <ellipse cx="97" cy="54" rx="6" ry="6"/>
     </svg>
-    <svg class="bg-svg bg9" viewBox="0 0 48 48">
-      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
-    </svg>
-  </div>
-  <!-- Left and Right Side SVGs (unchanged) -->
-  <div class="side-decoration left-decoration">
-    <svg class="side-svg svg-star" viewBox="0 0 48 48">
-      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
-    </svg>
-    <svg class="side-svg svg-graduation" viewBox="0 0 80 48">
-      <polygon points="10,20 40,6 70,20 40,34" />
-      <polyline points="10,20 40,34 40,44" />
-      <polyline points="70,20 40,34" />
-      <line x1="40" y1="34" x2="40" y2="44"/>
-      <line x1="64" y1="23" x2="64" y2="37"/>
-      <ellipse cx="64" cy="41" rx="4" ry="4" />
-    </svg>
-    <svg class="side-svg svg-people" viewBox="0 0 64 48">
-      <circle cx="16" cy="16" r="8"/>
-      <circle cx="40" cy="16" r="8"/>
+    <!-- Lower right -->
+    <svg class="bg-svg scatter9" viewBox="0 0 64 48">
+      <circle cx="16" cy="16" r="12"/>
+      <circle cx="40" cy="16" r="12"/>
       <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
-      <line x1="8" y1="40" x2="8" y2="44"/>
-      <line x1="56" y1="40" x2="56" y2="44"/>
-    </svg>
-  </div>
-  <div class="side-decoration right-decoration">
-    <svg class="side-svg svg-star" viewBox="0 0 48 48">
-      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
-    </svg>
-    <svg class="side-svg svg-graduation" viewBox="0 0 80 48">
-      <polygon points="10,20 40,6 70,20 40,34" />
-      <polyline points="10,20 40,34 40,44" />
-      <polyline points="70,20 40,34" />
-      <line x1="40" y1="34" x2="40" y2="44"/>
-      <line x1="64" y1="23" x2="64" y2="37"/>
-      <ellipse cx="64" cy="41" rx="4" ry="4" />
-    </svg>
-    <svg class="side-svg svg-people" viewBox="0 0 64 48">
-      <circle cx="16" cy="16" r="8"/>
-      <circle cx="40" cy="16" r="8"/>
-      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
-      <line x1="8" y1="40" x2="8" y2="44"/>
-      <line x1="56" y1="40" x2="56" y2="44"/>
+      <line x1="8" y1="40" x2="8" y2="48"/>
+      <line x1="56" y1="40" x2="56" y2="48"/>
     </svg>
   </div>
   <div class="content-wrapper">
