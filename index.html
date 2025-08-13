@@ -22,7 +22,6 @@
       overflow-x: hidden;
       position: relative;
     }
-    /* --- Centered, neat but playful SVG scatter --- */
     .background-svg-decoration {
       position: fixed;
       inset: 0;
@@ -39,7 +38,7 @@
       stroke-width: 3.1px;
       pointer-events: none;
     }
-    /* Scatter positions: neat, playful, and mid-screen oriented */
+    /* Center and inner scatter (previous) */
     .scatter1 { top: 8vh; left: 27vw; width: 65px; height: 65px; }
     .scatter2 { top: 9vh; left: 46vw; width: 95px; height: 52px; }
     .scatter3 { top: 8vh; right: 27vw; width: 65px; height: 65px; }
@@ -49,6 +48,16 @@
     .scatter7 { bottom: 8vh; left: 32vw; width: 65px; height: 65px;}
     .scatter8 { bottom: 10vh; left: 52vw; width: 95px; height: 52px;}
     .scatter9 { bottom: 8vh; right: 32vw; width: 65px; height: 65px;}
+    /* NEW: Outer perimeter scatter for a "filled" look */
+    .outer1 { top: 4vh; left: 4vw; width: 70px; height: 70px; }
+    .outer2 { top: 2vh; left: 88vw; width: 55px; height: 55px; }
+    .outer3 { top: 15vh; right: 3vw; width: 80px; height: 80px; }
+    .outer4 { top: 22vh; left: 7vw; width: 60px; height: 60px; }
+    .outer5 { top: 50vh; left: 4vw; width: 60px; height: 60px; }
+    .outer6 { top: 65vh; right: 7vw; width: 75px; height: 75px; }
+    .outer7 { bottom: 6vh; left: 5vw; width: 80px; height: 80px; }
+    .outer8 { bottom: 2vh; left: 86vw; width: 70px; height: 70px; }
+    .outer9 { bottom: 7vh; right: 3vw; width: 60px; height: 60px; }
     @media (max-width: 1050px) {
       .background-svg-decoration { display: none; }
       .section, .impact-section, .motivation { max-width: 99vw; width: 99vw; }
@@ -222,11 +231,10 @@
 </head>
 <body>
   <div class="background-svg-decoration">
-    <!-- Top left-ish -->
+    <!-- Center/Inner Scatter -->
     <svg class="bg-svg scatter1" viewBox="0 0 48 48">
       <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
     </svg>
-    <!-- Top center left -->
     <svg class="bg-svg scatter2" viewBox="0 0 120 60">
       <polygon points="15,30 60,10 105,30 60,50" />
       <polyline points="15,30 60,50 60,57" />
@@ -235,7 +243,6 @@
       <line x1="97" y1="34" x2="97" y2="48"/>
       <ellipse cx="97" cy="54" rx="6" ry="6"/>
     </svg>
-    <!-- Top center right -->
     <svg class="bg-svg scatter3" viewBox="0 0 64 48">
       <circle cx="16" cy="16" r="12"/>
       <circle cx="40" cy="16" r="12"/>
@@ -243,11 +250,9 @@
       <line x1="8" y1="40" x2="8" y2="48"/>
       <line x1="56" y1="40" x2="56" y2="48"/>
     </svg>
-    <!-- Middle left -->
     <svg class="bg-svg scatter4" viewBox="0 0 48 48">
       <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
     </svg>
-    <!-- Center, slightly below title -->
     <svg class="bg-svg scatter5" viewBox="0 0 120 60">
       <polygon points="15,30 60,10 105,30 60,50" />
       <polyline points="15,30 60,50 60,57" />
@@ -256,7 +261,6 @@
       <line x1="97" y1="34" x2="97" y2="48"/>
       <ellipse cx="97" cy="54" rx="6" ry="6"/>
     </svg>
-    <!-- Middle right -->
     <svg class="bg-svg scatter6" viewBox="0 0 64 48">
       <circle cx="16" cy="16" r="12"/>
       <circle cx="40" cy="16" r="12"/>
@@ -264,11 +268,9 @@
       <line x1="8" y1="40" x2="8" y2="48"/>
       <line x1="56" y1="40" x2="56" y2="48"/>
     </svg>
-    <!-- Lower left -->
     <svg class="bg-svg scatter7" viewBox="0 0 48 48">
       <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
     </svg>
-    <!-- Lower center right -->
     <svg class="bg-svg scatter8" viewBox="0 0 120 60">
       <polygon points="15,30 60,10 105,30 60,50" />
       <polyline points="15,30 60,50 60,57" />
@@ -277,8 +279,62 @@
       <line x1="97" y1="34" x2="97" y2="48"/>
       <ellipse cx="97" cy="54" rx="6" ry="6"/>
     </svg>
-    <!-- Lower right -->
     <svg class="bg-svg scatter9" viewBox="0 0 64 48">
+      <circle cx="16" cy="16" r="12"/>
+      <circle cx="40" cy="16" r="12"/>
+      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
+      <line x1="8" y1="40" x2="8" y2="48"/>
+      <line x1="56" y1="40" x2="56" y2="48"/>
+    </svg>
+    <!-- Outer perimeter scatter for a filled look -->
+    <svg class="bg-svg outer1" viewBox="0 0 48 48">
+      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
+    </svg>
+    <svg class="bg-svg outer2" viewBox="0 0 120 60">
+      <polygon points="15,30 60,10 105,30 60,50" />
+      <polyline points="15,30 60,50 60,57" />
+      <polyline points="105,30 60,50" />
+      <line x1="60" y1="50" x2="60" y2="57"/>
+      <line x1="97" y1="34" x2="97" y2="48"/>
+      <ellipse cx="97" cy="54" rx="6" ry="6"/>
+    </svg>
+    <svg class="bg-svg outer3" viewBox="0 0 64 48">
+      <circle cx="16" cy="16" r="12"/>
+      <circle cx="40" cy="16" r="12"/>
+      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
+      <line x1="8" y1="40" x2="8" y2="48"/>
+      <line x1="56" y1="40" x2="56" y2="48"/>
+    </svg>
+    <svg class="bg-svg outer4" viewBox="0 0 48 48">
+      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
+    </svg>
+    <svg class="bg-svg outer5" viewBox="0 0 120 60">
+      <polygon points="15,30 60,10 105,30 60,50" />
+      <polyline points="15,30 60,50 60,57" />
+      <polyline points="105,30 60,50" />
+      <line x1="60" y1="50" x2="60" y2="57"/>
+      <line x1="97" y1="34" x2="97" y2="48"/>
+      <ellipse cx="97" cy="54" rx="6" ry="6"/>
+    </svg>
+    <svg class="bg-svg outer6" viewBox="0 0 64 48">
+      <circle cx="16" cy="16" r="12"/>
+      <circle cx="40" cy="16" r="12"/>
+      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
+      <line x1="8" y1="40" x2="8" y2="48"/>
+      <line x1="56" y1="40" x2="56" y2="48"/>
+    </svg>
+    <svg class="bg-svg outer7" viewBox="0 0 48 48">
+      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
+    </svg>
+    <svg class="bg-svg outer8" viewBox="0 0 120 60">
+      <polygon points="15,30 60,10 105,30 60,50" />
+      <polyline points="15,30 60,50 60,57" />
+      <polyline points="105,30 60,50" />
+      <line x1="60" y1="50" x2="60" y2="57"/>
+      <line x1="97" y1="34" x2="97" y2="48"/>
+      <ellipse cx="97" cy="54" rx="6" ry="6"/>
+    </svg>
+    <svg class="bg-svg outer9" viewBox="0 0 64 48">
       <circle cx="16" cy="16" r="12"/>
       <circle cx="40" cy="16" r="12"/>
       <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
