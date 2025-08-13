@@ -45,52 +45,46 @@
       right: 0;
       justify-content: flex-end;
     }
-    /* Modern SVG style: large, faint, outlined, placed */
     .side-svg {
       position: absolute;
-      opacity: 0.13;
+      opacity: 0.45; /* more visible but still gentle */
       width: 170px;
       height: auto;
-      stroke: #b3c7ea;
+      stroke: #8db7e6; /* a gentle but more visible light blue */
       fill: none;
-      stroke-width: 3px;
-      filter: drop-shadow(0 4px 14px #b3bedf44);
+      stroke-width: 3.2px;
+      filter: none;
       z-index: 0;
+      background: none;
+      transition: opacity 0.1s;
     }
     .svg-graduation {
       top: 28%;
-      left: 28px;
+      left: 30px;
     }
     .svg-star {
-      top: 21%;
-      left: 110px;
+      top: 20%;
+      left: 108px;
       width: 55px;
-      stroke-width: 3.2px;
+      stroke-width: 3px;
     }
     .svg-people {
-      bottom: 27%;
-      left: 10px;
+      bottom: 23%;
+      left: 13px;
       width: 140px;
-      stroke-width: 3.1px;
-    }
-    .svg-empty {
-      display: none;
+      stroke-width: 2.9px;
     }
     .right-decoration .svg-graduation,
     .right-decoration .svg-star {
       left: unset;
-      right: 28px;
+      right: 30px;
     }
     .right-decoration .svg-star {
-      right: 110px;
+      right: 108px;
     }
     .right-decoration .svg-people {
       left: unset;
-      right: 10px;
-    }
-    /* Flip the order for the right side */
-    .right-decoration .svg-people {
-      bottom: 23%;
+      right: 13px;
       transform: scaleX(-1);
     }
     @media (max-width: 1050px) {
@@ -268,7 +262,7 @@
   </style>
 </head>
 <body>
-  <!-- Left Side Modern, Outline SVG Art -->
+  <!-- Left Side SVGs -->
   <div class="side-decoration left-decoration">
     <svg class="side-svg svg-star" viewBox="0 0 48 48">
       <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
@@ -289,7 +283,7 @@
       <line x1="56" y1="40" x2="56" y2="44"/>
     </svg>
   </div>
-  <!-- Right Side Modern, Outline SVG Art (mirrored, similar style) -->
+  <!-- Right Side SVGs -->
   <div class="side-decoration right-decoration">
     <svg class="side-svg svg-star" viewBox="0 0 48 48">
       <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
