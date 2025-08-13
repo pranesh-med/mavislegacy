@@ -21,76 +21,72 @@
       max-width: 100vw;
       overflow-x: hidden;
       position: relative;
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
     }
-    .background-svg-decoration {
+    /* Navigation Menu */
+    .nav-menu {
       position: fixed;
-      inset: 0;
-      width: 100vw;
+      top: 0;
+      left: 0;
       height: 100vh;
-      pointer-events: none;
-      z-index: 0;
+      width: 220px;
+      background: rgba(230,238,255,0.97);
+      border-right: 1.5px solid #b3c5e9;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 50px;
+      box-shadow: 4px 0 20px 0 rgba(60,60,100,0.05);
     }
-    .bg-svg {
-      position: absolute;
-      stroke: #8db7e6;
-      opacity: 0.33;
-      fill: none;
-      stroke-width: 3.1px;
-      pointer-events: none;
+    .nav-menu h2 {
+      font-family: 'Baloo 2', cursive, sans-serif;
+      color: #0d47a1;
+      font-size: 1.65rem;
+      margin: 0 0 2rem 0;
+      padding-left: 30px;
+      letter-spacing: 2px;
+      font-weight: 900;
     }
-    /* Center and inner scatter (previous) */
-    .scatter1 { top: 8vh; left: 27vw; width: 65px; height: 65px; }
-    .scatter2 { top: 9vh; left: 46vw; width: 95px; height: 52px; }
-    .scatter3 { top: 8vh; right: 27vw; width: 65px; height: 65px; }
-    .scatter4 { top: 38vh; left: 22vw; width: 70px; height: 70px;}
-    .scatter5 { top: 33vh; left: 48vw; width: 95px; height: 52px;}
-    .scatter6 { top: 38vh; right: 22vw; width: 70px; height: 70px;}
-    .scatter7 { bottom: 8vh; left: 32vw; width: 65px; height: 65px;}
-    .scatter8 { bottom: 10vh; left: 52vw; width: 95px; height: 52px;}
-    .scatter9 { bottom: 8vh; right: 32vw; width: 65px; height: 65px;}
-    /* NEW: Outer perimeter scatter for a "filled" look */
-    .outer1 { top: 4vh; left: 4vw; width: 70px; height: 70px; }
-    .outer2 { top: 2vh; left: 88vw; width: 55px; height: 55px; }
-    .outer3 { top: 15vh; right: 3vw; width: 80px; height: 80px; }
-    .outer4 { top: 22vh; left: 7vw; width: 60px; height: 60px; }
-    .outer5 { top: 50vh; left: 4vw; width: 60px; height: 60px; }
-    .outer6 { top: 65vh; right: 7vw; width: 75px; height: 75px; }
-    .outer7 { bottom: 6vh; left: 5vw; width: 80px; height: 80px; }
-    .outer8 { bottom: 2vh; left: 86vw; width: 70px; height: 70px; }
-    .outer9 { bottom: 7vh; right: 3vw; width: 60px; height: 60px; }
-    @media (max-width: 1050px) {
-      .background-svg-decoration { display: none; }
-      .section, .impact-section, .motivation { max-width: 99vw; width: 99vw; }
-      table { font-size: 0.96rem; }
+    .nav-links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-    @media (max-width: 700px) {
-      .main-title { font-size: 2.1rem; }
-      .section, .impact-section, .motivation { padding: 1.2rem 1vw; max-width: 100vw; width: 100vw; }
-      table, th, td { font-size: 0.90rem; }
-      .section-title, .impact-title { font-size: 1.15rem; }
-      .logo { width: 70px; }
-    }
-    .logo {
-      width: 120px;
-      margin: 2rem auto 1.2rem auto;
+    .nav-link {
       display: block;
-      border-radius: 18px;
-      box-shadow: 0 6px 32px rgba(26,35,126,0.10);
-      background: #fff;
-      padding: 1.2rem;
-      animation: popIn 1.1s cubic-bezier(.17,.67,.83,.67);
-      max-width: 90vw;
-      box-sizing: border-box;
+      padding: 16px 30px;
+      font-size: 1.15rem;
+      color: #243d6a;
+      text-decoration: none;
+      font-family: 'Quicksand', Arial, sans-serif;
+      font-weight: 700;
+      border-left: 4px solid transparent;
+      border-radius: 0 22px 22px 0;
+      transition: background 0.2s, color 0.2s, border-left 0.2s;
     }
+    .nav-link.active,
+    .nav-link:hover {
+      background: #e6edfa;
+      color: #0d47a1;
+      border-left: 4px solid #7ea7ea;
+    }
+    /* Content Wrapper adjustment for nav */
     .content-wrapper {
       position: relative;
       z-index: 2;
-      width: 100%;
+      width: calc(100% - 220px);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-left: 220px;
+      transition: margin 0.2s;
     }
+    /* Main content sections */
     .main-title {
       font-family: 'Baloo 2', cursive, sans-serif;
       font-size: 3.3rem;
@@ -117,6 +113,18 @@
       text-align: center;
       margin-bottom: 2.7rem;
       text-shadow: 0 1px 4px #e7eaf6;
+    }
+    .logo {
+      width: 120px;
+      margin: 2rem auto 1.2rem auto;
+      display: block;
+      border-radius: 18px;
+      box-shadow: 0 6px 32px rgba(26,35,126,0.10);
+      background: #fff;
+      padding: 1.2rem;
+      animation: popIn 1.1s cubic-bezier(.17,.67,.83,.67);
+      max-width: 90vw;
+      box-sizing: border-box;
     }
     .section {
       background: #fff;
@@ -227,194 +235,195 @@
     tr:nth-child(even) {
       background: #f4f6fa;
     }
+    /* Hide/show sections for nav */
+    .hidden-section {
+      display: none !important;
+    }
+    /* Responsive nav */
+    @media (max-width: 1050px) {
+      .nav-menu { display: none; }
+      .content-wrapper { margin-left: 0; width: 100%; }
+      .background-svg-decoration { display: none; }
+      .section, .impact-section, .motivation { max-width: 99vw; width: 99vw; }
+      table { font-size: 0.96rem; }
+    }
+    @media (max-width: 700px) {
+      .main-title { font-size: 2.1rem; }
+      .section, .impact-section, .motivation { padding: 1.2rem 1vw; max-width: 100vw; width: 100vw; }
+      table, th, td { font-size: 0.90rem; }
+      .section-title, .impact-title { font-size: 1.15rem; }
+      .logo { width: 70px; }
+    }
+    /* Decorative background SVGs (unchanged from previous) */
+    .background-svg-decoration {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bg-svg {
+      position: absolute;
+      stroke: #8db7e6;
+      opacity: 0.33;
+      fill: none;
+      stroke-width: 3.1px;
+      pointer-events: none;
+    }
+    .scatter1 { top: 8vh; left: 27vw; width: 65px; height: 65px; }
+    .scatter2 { top: 9vh; left: 46vw; width: 95px; height: 52px; }
+    .scatter3 { top: 8vh; right: 27vw; width: 65px; height: 65px; }
+    .scatter4 { top: 38vh; left: 22vw; width: 70px; height: 70px;}
+    .scatter5 { top: 33vh; left: 48vw; width: 95px; height: 52px;}
+    .scatter6 { top: 38vh; right: 22vw; width: 70px; height: 70px;}
+    .scatter7 { bottom: 8vh; left: 32vw; width: 65px; height: 65px;}
+    .scatter8 { bottom: 10vh; left: 52vw; width: 95px; height: 52px;}
+    .scatter9 { bottom: 8vh; right: 32vw; width: 65px; height: 65px;}
+    .outer1 { top: 4vh; left: 4vw; width: 70px; height: 70px; }
+    .outer2 { top: 2vh; left: 88vw; width: 55px; height: 55px; }
+    .outer3 { top: 15vh; right: 3vw; width: 80px; height: 80px; }
+    .outer4 { top: 22vh; left: 7vw; width: 60px; height: 60px; }
+    .outer5 { top: 50vh; left: 4vw; width: 60px; height: 60px; }
+    .outer6 { top: 65vh; right: 7vw; width: 75px; height: 75px; }
+    .outer7 { bottom: 6vh; left: 5vw; width: 80px; height: 80px; }
+    .outer8 { bottom: 2vh; left: 86vw; width: 70px; height: 70px; }
+    .outer9 { bottom: 7vh; right: 3vw; width: 60px; height: 60px; }
   </style>
 </head>
 <body>
+  <!-- Navigation menu -->
+  <nav class="nav-menu">
+    <h2>Menu</h2>
+    <div class="nav-links">
+      <a href="#" class="nav-link active" id="nav-home">Homepage</a>
+      <a href="#" class="nav-link" id="nav-impact">Real Impact</a>
+    </div>
+  </nav>
+  <!-- Decorative SVGs -->
   <div class="background-svg-decoration">
-    <!-- Center/Inner Scatter -->
-    <svg class="bg-svg scatter1" viewBox="0 0 48 48">
-      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
-    </svg>
-    <svg class="bg-svg scatter2" viewBox="0 0 120 60">
-      <polygon points="15,30 60,10 105,30 60,50" />
-      <polyline points="15,30 60,50 60,57" />
-      <polyline points="105,30 60,50" />
-      <line x1="60" y1="50" x2="60" y2="57"/>
-      <line x1="97" y1="34" x2="97" y2="48"/>
-      <ellipse cx="97" cy="54" rx="6" ry="6"/>
-    </svg>
-    <svg class="bg-svg scatter3" viewBox="0 0 64 48">
-      <circle cx="16" cy="16" r="12"/>
-      <circle cx="40" cy="16" r="12"/>
-      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
-      <line x1="8" y1="40" x2="8" y2="48"/>
-      <line x1="56" y1="40" x2="56" y2="48"/>
-    </svg>
-    <svg class="bg-svg scatter4" viewBox="0 0 48 48">
-      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
-    </svg>
-    <svg class="bg-svg scatter5" viewBox="0 0 120 60">
-      <polygon points="15,30 60,10 105,30 60,50" />
-      <polyline points="15,30 60,50 60,57" />
-      <polyline points="105,30 60,50" />
-      <line x1="60" y1="50" x2="60" y2="57"/>
-      <line x1="97" y1="34" x2="97" y2="48"/>
-      <ellipse cx="97" cy="54" rx="6" ry="6"/>
-    </svg>
-    <svg class="bg-svg scatter6" viewBox="0 0 64 48">
-      <circle cx="16" cy="16" r="12"/>
-      <circle cx="40" cy="16" r="12"/>
-      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
-      <line x1="8" y1="40" x2="8" y2="48"/>
-      <line x1="56" y1="40" x2="56" y2="48"/>
-    </svg>
-    <svg class="bg-svg scatter7" viewBox="0 0 48 48">
-      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
-    </svg>
-    <svg class="bg-svg scatter8" viewBox="0 0 120 60">
-      <polygon points="15,30 60,10 105,30 60,50" />
-      <polyline points="15,30 60,50 60,57" />
-      <polyline points="105,30 60,50" />
-      <line x1="60" y1="50" x2="60" y2="57"/>
-      <line x1="97" y1="34" x2="97" y2="48"/>
-      <ellipse cx="97" cy="54" rx="6" ry="6"/>
-    </svg>
-    <svg class="bg-svg scatter9" viewBox="0 0 64 48">
-      <circle cx="16" cy="16" r="12"/>
-      <circle cx="40" cy="16" r="12"/>
-      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
-      <line x1="8" y1="40" x2="8" y2="48"/>
-      <line x1="56" y1="40" x2="56" y2="48"/>
-    </svg>
-    <!-- Outer perimeter scatter for a filled look -->
-    <svg class="bg-svg outer1" viewBox="0 0 48 48">
-      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
-    </svg>
-    <svg class="bg-svg outer2" viewBox="0 0 120 60">
-      <polygon points="15,30 60,10 105,30 60,50" />
-      <polyline points="15,30 60,50 60,57" />
-      <polyline points="105,30 60,50" />
-      <line x1="60" y1="50" x2="60" y2="57"/>
-      <line x1="97" y1="34" x2="97" y2="48"/>
-      <ellipse cx="97" cy="54" rx="6" ry="6"/>
-    </svg>
-    <svg class="bg-svg outer3" viewBox="0 0 64 48">
-      <circle cx="16" cy="16" r="12"/>
-      <circle cx="40" cy="16" r="12"/>
-      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
-      <line x1="8" y1="40" x2="8" y2="48"/>
-      <line x1="56" y1="40" x2="56" y2="48"/>
-    </svg>
-    <svg class="bg-svg outer4" viewBox="0 0 48 48">
-      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
-    </svg>
-    <svg class="bg-svg outer5" viewBox="0 0 120 60">
-      <polygon points="15,30 60,10 105,30 60,50" />
-      <polyline points="15,30 60,50 60,57" />
-      <polyline points="105,30 60,50" />
-      <line x1="60" y1="50" x2="60" y2="57"/>
-      <line x1="97" y1="34" x2="97" y2="48"/>
-      <ellipse cx="97" cy="54" rx="6" ry="6"/>
-    </svg>
-    <svg class="bg-svg outer6" viewBox="0 0 64 48">
-      <circle cx="16" cy="16" r="12"/>
-      <circle cx="40" cy="16" r="12"/>
-      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
-      <line x1="8" y1="40" x2="8" y2="48"/>
-      <line x1="56" y1="40" x2="56" y2="48"/>
-    </svg>
-    <svg class="bg-svg outer7" viewBox="0 0 48 48">
-      <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
-    </svg>
-    <svg class="bg-svg outer8" viewBox="0 0 120 60">
-      <polygon points="15,30 60,10 105,30 60,50" />
-      <polyline points="15,30 60,50 60,57" />
-      <polyline points="105,30 60,50" />
-      <line x1="60" y1="50" x2="60" y2="57"/>
-      <line x1="97" y1="34" x2="97" y2="48"/>
-      <ellipse cx="97" cy="54" rx="6" ry="6"/>
-    </svg>
-    <svg class="bg-svg outer9" viewBox="0 0 64 48">
-      <circle cx="16" cy="16" r="12"/>
-      <circle cx="40" cy="16" r="12"/>
-      <path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40" />
-      <line x1="8" y1="40" x2="8" y2="48"/>
-      <line x1="56" y1="40" x2="56" y2="48"/>
-    </svg>
+    <!-- Copy the same SVGs as before (scatter1-9, outer1-9) -->
+    <svg class="bg-svg scatter1" viewBox="0 0 48 48"><polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/></svg>
+    <svg class="bg-svg scatter2" viewBox="0 0 120 60"><polygon points="15,30 60,10 105,30 60,50"/><polyline points="15,30 60,50 60,57"/><polyline points="105,30 60,50"/><line x1="60" y1="50" x2="60" y2="57"/><line x1="97" y1="34" x2="97" y2="48"/><ellipse cx="97" cy="54" rx="6" ry="6"/></svg>
+    <svg class="bg-svg scatter3" viewBox="0 0 64 48"><circle cx="16" cy="16" r="12"/><circle cx="40" cy="16" r="12"/><path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40"/><line x1="8" y1="40" x2="8" y2="48"/><line x1="56" y1="40" x2="56" y2="48"/></svg>
+    <svg class="bg-svg scatter4" viewBox="0 0 48 48"><polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/></svg>
+    <svg class="bg-svg scatter5" viewBox="0 0 120 60"><polygon points="15,30 60,10 105,30 60,50"/><polyline points="15,30 60,50 60,57"/><polyline points="105,30 60,50"/><line x1="60" y1="50" x2="60" y2="57"/><line x1="97" y1="34" x2="97" y2="48"/><ellipse cx="97" cy="54" rx="6" ry="6"/></svg>
+    <svg class="bg-svg scatter6" viewBox="0 0 64 48"><circle cx="16" cy="16" r="12"/><circle cx="40" cy="16" r="12"/><path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40"/><line x1="8" y1="40" x2="8" y2="48"/><line x1="56" y1="40" x2="56" y2="48"/></svg>
+    <svg class="bg-svg scatter7" viewBox="0 0 48 48"><polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/></svg>
+    <svg class="bg-svg scatter8" viewBox="0 0 120 60"><polygon points="15,30 60,10 105,30 60,50"/><polyline points="15,30 60,50 60,57"/><polyline points="105,30 60,50"/><line x1="60" y1="50" x2="60" y2="57"/><line x1="97" y1="34" x2="97" y2="48"/><ellipse cx="97" cy="54" rx="6" ry="6"/></svg>
+    <svg class="bg-svg scatter9" viewBox="0 0 64 48"><circle cx="16" cy="16" r="12"/><circle cx="40" cy="16" r="12"/><path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40"/><line x1="8" y1="40" x2="8" y2="48"/><line x1="56" y1="40" x2="56" y2="48"/></svg>
+    <svg class="bg-svg outer1" viewBox="0 0 48 48"><polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/></svg>
+    <svg class="bg-svg outer2" viewBox="0 0 120 60"><polygon points="15,30 60,10 105,30 60,50"/><polyline points="15,30 60,50 60,57"/><polyline points="105,30 60,50"/><line x1="60" y1="50" x2="60" y2="57"/><line x1="97" y1="34" x2="97" y2="48"/><ellipse cx="97" cy="54" rx="6" ry="6"/></svg>
+    <svg class="bg-svg outer3" viewBox="0 0 64 48"><circle cx="16" cy="16" r="12"/><circle cx="40" cy="16" r="12"/><path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40"/><line x1="8" y1="40" x2="8" y2="48"/><line x1="56" y1="40" x2="56" y2="48"/></svg>
+    <svg class="bg-svg outer4" viewBox="0 0 48 48"><polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/></svg>
+    <svg class="bg-svg outer5" viewBox="0 0 120 60"><polygon points="15,30 60,10 105,30 60,50"/><polyline points="15,30 60,50 60,57"/><polyline points="105,30 60,50"/><line x1="60" y1="50" x2="60" y2="57"/><line x1="97" y1="34" x2="97" y2="48"/><ellipse cx="97" cy="54" rx="6" ry="6"/></svg>
+    <svg class="bg-svg outer6" viewBox="0 0 64 48"><circle cx="16" cy="16" r="12"/><circle cx="40" cy="16" r="12"/><path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40"/><line x1="8" y1="40" x2="8" y2="48"/><line x1="56" y1="40" x2="56" y2="48"/></svg>
+    <svg class="bg-svg outer7" viewBox="0 0 48 48"><polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/></svg>
+    <svg class="bg-svg outer8" viewBox="0 0 120 60"><polygon points="15,30 60,10 105,30 60,50"/><polyline points="15,30 60,50 60,57"/><polyline points="105,30 60,50"/><line x1="60" y1="50" x2="60" y2="57"/><line x1="97" y1="34" x2="97" y2="48"/><ellipse cx="97" cy="54" rx="6" ry="6"/></svg>
+    <svg class="bg-svg outer9" viewBox="0 0 64 48"><circle cx="16" cy="16" r="12"/><circle cx="40" cy="16" r="12"/><path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40"/><line x1="8" y1="40" x2="8" y2="48"/><line x1="56" y1="40" x2="56" y2="48"/></svg>
   </div>
   <div class="content-wrapper">
     <img class="logo" src="images/mavislogo.jpeg" alt="Mavis Legacy Foundation Logo"/>
     <div class="main-title">Mavis Legacy Foundation</div>
     <div class="subtitle">Making a Difference That Lasts</div>
-    <div class="section">
-      <div class="section-title">Our Mission</div>
-      <ul class="mission-list">
-        <li>Empower and uplift underserved communities through education, resources and support. We are dedicated to creating lasting positive impact by funding initiatives that promote opportunity, equality, and personal growth for individuals and families in need.</li>
-        <li>We are dedicated to fostering spiritual growth, cultural heritage, and sustainable maintenance of temples to benefit present and future generations.</li>
-        <li>Provide timely support, resources, and hope to individuals and communities facing distress.</li>
-      </ul>
-    </div>
-    <div class="motivation">
-      “We believe that uplifting those in need is not only the right thing to do but also a powerful way to carry forward our legacy of compassion and care.”
-    </div>
-    <div class="impact-section">
-      <div class="impact-title">Real Impact Stories: Empowering Dreams Through Education</div>
-      <div class="impact-desc">
-        We are proud to support talented students in pursuing their passions—dreams they might not have realized without our help. Through our commitment, we strive to create opportunities that shape futures and strengthen communities.
+    <!-- Homepage (Mission & Quote) -->
+    <div id="homepage-section">
+      <div class="section">
+        <div class="section-title">Our Mission</div>
+        <ul class="mission-list">
+          <li>Empower and uplift underserved communities through education, resources and support. We are dedicated to creating lasting positive impact by funding initiatives that promote opportunity, equality, and personal growth for individuals and families in need.</li>
+          <li>We are dedicated to fostering spiritual growth, cultural heritage, and sustainable maintenance of temples to benefit present and future generations.</li>
+          <li>Provide timely support, resources, and hope to individuals and communities facing distress.</li>
+        </ul>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Field of Study</th>
-            <th>Timeline</th>
-            <th>Status</th>
-            <th>College / Location</th>
-            <th>Funding Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Sivesh</td>
-            <td>Doctor (M.B.B.S)</td>
-            <td>2021–2026</td>
-            <td>Ongoing</td>
-            <td>ESIC Medical College, Chennai, India</td>
-            <td>Tuition Fee, Boarding, Lodging</td>
-          </tr>
-          <tr>
-            <td>Keerthana</td>
-            <td>Doctor (M.B.B.S)</td>
-            <td>2021–2026</td>
-            <td>Ongoing</td>
-            <td>Coimbatore Medical College, Coimbatore, India</td>
-            <td>Tuition Fee, Boarding, Lodging</td>
-          </tr>
-          <tr>
-            <td>Nirmala</td>
-            <td>Doctor (M.B.B.S)</td>
-            <td>2022–2027</td>
-            <td>Ongoing</td>
-            <td>Karur Government Medical College, Karur, India</td>
-            <td>Tuition Fee, Boarding, Lodging</td>
-          </tr>
-          <tr>
-            <td>Arun</td>
-            <td>B.Sc Visual Effects</td>
-            <td>2024–2027</td>
-            <td>Ongoing</td>
-            <td>Davinci Media College, Chennai, India</td>
-            <td>Tuition Fee, Boarding, Lodging</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="impact-desc">
-        These students embody the spirit of perseverance and with our foundation’s support, are charting courses that will touch countless lives.
+      <div class="motivation">
+        “We believe that uplifting those in need is not only the right thing to do but also a powerful way to carry forward our legacy of compassion and care.”
+      </div>
+    </div>
+    <!-- Real Impact Section (Initially hidden) -->
+    <div id="impact-section" class="hidden-section">
+      <div class="impact-section">
+        <div class="impact-title">Real Impact Stories: Empowering Dreams Through Education</div>
+        <div class="impact-desc">
+          We are proud to support talented students in pursuing their passions—dreams they might not have realized without our help. Through our commitment, we strive to create opportunities that shape futures and strengthen communities.
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Field of Study</th>
+              <th>Timeline</th>
+              <th>Status</th>
+              <th>College / Location</th>
+              <th>Funding Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sivesh</td>
+              <td>Doctor (M.B.B.S)</td>
+              <td>2021–2026</td>
+              <td>Ongoing</td>
+              <td>ESIC Medical College, Chennai, India</td>
+              <td>Tuition Fee, Boarding, Lodging</td>
+            </tr>
+            <tr>
+              <td>Keerthana</td>
+              <td>Doctor (M.B.B.S)</td>
+              <td>2021–2026</td>
+              <td>Ongoing</td>
+              <td>Coimbatore Medical College, Coimbatore, India</td>
+              <td>Tuition Fee, Boarding, Lodging</td>
+            </tr>
+            <tr>
+              <td>Nirmala</td>
+              <td>Doctor (M.B.B.S)</td>
+              <td>2022–2027</td>
+              <td>Ongoing</td>
+              <td>Karur Government Medical College, Karur, India</td>
+              <td>Tuition Fee, Boarding, Lodging</td>
+            </tr>
+            <tr>
+              <td>Arun</td>
+              <td>B.Sc Visual Effects</td>
+              <td>2024–2027</td>
+              <td>Ongoing</td>
+              <td>Davinci Media College, Chennai, India</td>
+              <td>Tuition Fee, Boarding, Lodging</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="impact-desc">
+          These students embody the spirit of perseverance and with our foundation’s support, are charting courses that will touch countless lives.
+        </div>
       </div>
     </div>
     <div style="text-align:center; color:#757de8; font-size:1.05rem; margin-top:2.2rem; font-family:'Quicksand',Arial,sans-serif;">
       © 2025 Mavis Legacy Foundation. All rights reserved.
     </div>
   </div>
+  <!-- Navigation Script -->
+  <script>
+    const navHome = document.getElementById('nav-home');
+    const navImpact = document.getElementById('nav-impact');
+    const homepageSection = document.getElementById('homepage-section');
+    const impactSection = document.getElementById('impact-section');
+    navHome.addEventListener('click', function(e) {
+      e.preventDefault();
+      navHome.classList.add('active');
+      navImpact.classList.remove('active');
+      homepageSection.classList.remove('hidden-section');
+      impactSection.classList.add('hidden-section');
+      window.scrollTo({top: 0});
+    });
+    navImpact.addEventListener('click', function(e) {
+      e.preventDefault();
+      navHome.classList.remove('active');
+      navImpact.classList.add('active');
+      homepageSection.classList.add('hidden-section');
+      impactSection.classList.remove('hidden-section');
+      window.scrollTo({top: 0});
+    });
+  </script>
 </body>
 </html>
