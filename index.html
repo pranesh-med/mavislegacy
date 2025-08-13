@@ -254,7 +254,7 @@
       .section-title, .impact-title { font-size: 1.15rem; }
       .logo { width: 70px; }
     }
-    /* Decorative background SVGs (unchanged from previous) */
+    /* Decorative background SVGs */
     .background-svg-decoration {
       position: fixed;
       inset: 0;
@@ -298,6 +298,7 @@
     <div class="nav-links">
       <a href="#" class="nav-link active" id="nav-home">Homepage</a>
       <a href="#" class="nav-link" id="nav-impact">Real Impact</a>
+      <a href="#" class="nav-link" id="nav-apply">How to Apply</a>
     </div>
   </nav>
   <!-- Decorative SVGs -->
@@ -398,6 +399,10 @@
         </div>
       </div>
     </div>
+    <!-- How to Apply Section (Initially hidden, blank) -->
+    <div id="apply-section" class="hidden-section">
+      <!-- Intentionally left blank for future content -->
+    </div>
     <div style="text-align:center; color:#757de8; font-size:1.05rem; margin-top:2.2rem; font-family:'Quicksand',Arial,sans-serif;">
       © 2025 Mavis Legacy Foundation. All rights reserved.
     </div>
@@ -406,22 +411,38 @@
   <script>
     const navHome = document.getElementById('nav-home');
     const navImpact = document.getElementById('nav-impact');
+    const navApply = document.getElementById('nav-apply');
     const homepageSection = document.getElementById('homepage-section');
     const impactSection = document.getElementById('impact-section');
+    const applySection = document.getElementById('apply-section');
     navHome.addEventListener('click', function(e) {
       e.preventDefault();
       navHome.classList.add('active');
       navImpact.classList.remove('active');
+      navApply.classList.remove('active');
       homepageSection.classList.remove('hidden-section');
       impactSection.classList.add('hidden-section');
+      applySection.classList.add('hidden-section');
       window.scrollTo({top: 0});
     });
     navImpact.addEventListener('click', function(e) {
       e.preventDefault();
       navHome.classList.remove('active');
       navImpact.classList.add('active');
+      navApply.classList.remove('active');
       homepageSection.classList.add('hidden-section');
       impactSection.classList.remove('hidden-section');
+      applySection.classList.add('hidden-section');
+      window.scrollTo({top: 0});
+    });
+    navApply.addEventListener('click', function(e) {
+      e.preventDefault();
+      navHome.classList.remove('active');
+      navImpact.classList.remove('active');
+      navApply.classList.add('active');
+      homepageSection.classList.add('hidden-section');
+      impactSection.classList.add('hidden-section');
+      applySection.classList.remove('hidden-section');
       window.scrollTo({top: 0});
     });
   </script>
