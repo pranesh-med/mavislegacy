@@ -25,7 +25,6 @@
       flex-direction: row;
       min-height: 100vh;
     }
-    /* Navigation Menu */
     .nav-menu {
       position: fixed;
       top: 0;
@@ -74,7 +73,6 @@
       color: #0d47a1;
       border-left: 4px solid #7ea7ea;
     }
-    /* Content Wrapper adjustment for nav */
     .content-wrapper {
       position: relative;
       z-index: 2;
@@ -86,7 +84,6 @@
       margin-left: 220px;
       transition: margin 0.2s;
     }
-    /* Main content sections */
     .main-title {
       font-family: 'Baloo 2', cursive, sans-serif;
       font-size: 3.3rem;
@@ -204,6 +201,18 @@
       font-family: 'Quicksand', Arial, sans-serif;
       font-weight: 600;
     }
+    .impact-temple {
+      color: #205271;
+      font-size: 1.13rem;
+      font-family: 'Quicksand', Arial, sans-serif;
+      font-weight: 600;
+      margin-top: 1.6rem;
+      margin-bottom: 0.7rem;
+      border-left: 5px solid #b3c5e9;
+      background: #f0f6fa;
+      padding: 1.2rem 1.3rem;
+      border-radius: 12px;
+    }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -235,17 +244,28 @@
     tr:nth-child(even) {
       background: #f4f6fa;
     }
-    /* Hide/show sections for nav */
     .hidden-section {
       display: none !important;
     }
-    /* Responsive nav */
+    .coming-soon {
+      text-align: center;
+      font-family: 'Baloo 2', cursive, sans-serif;
+      color: #0d47a1;
+      font-size: 2.7rem;
+      font-weight: 900;
+      margin-top: 6rem;
+      margin-bottom: 6rem;
+      letter-spacing: 2px;
+      opacity: 0.97;
+      /* Responsive size */
+    }
     @media (max-width: 1050px) {
       .nav-menu { display: none; }
       .content-wrapper { margin-left: 0; width: 100%; }
       .background-svg-decoration { display: none; }
       .section, .impact-section, .motivation { max-width: 99vw; width: 99vw; }
       table { font-size: 0.96rem; }
+      .coming-soon { font-size: 2rem; }
     }
     @media (max-width: 700px) {
       .main-title { font-size: 2.1rem; }
@@ -253,8 +273,8 @@
       table, th, td { font-size: 0.90rem; }
       .section-title, .impact-title { font-size: 1.15rem; }
       .logo { width: 70px; }
+      .coming-soon { font-size: 1.3rem; }
     }
-    /* Decorative background SVGs */
     .background-svg-decoration {
       position: fixed;
       inset: 0;
@@ -299,11 +319,12 @@
       <a href="#" class="nav-link active" id="nav-home">Homepage</a>
       <a href="#" class="nav-link" id="nav-impact">Real Impact</a>
       <a href="#" class="nav-link" id="nav-apply">How to Apply</a>
+      <a href="#" class="nav-link" id="nav-donate">Donate</a>
     </div>
   </nav>
   <!-- Decorative SVGs -->
   <div class="background-svg-decoration">
-    <!-- Copy the same SVGs as before (scatter1-9, outer1-9) -->
+    <!-- Scatter and outer SVGs ... (unchanged for brevity) -->
     <svg class="bg-svg scatter1" viewBox="0 0 48 48"><polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/></svg>
     <svg class="bg-svg scatter2" viewBox="0 0 120 60"><polygon points="15,30 60,10 105,30 60,50"/><polyline points="15,30 60,50 60,57"/><polyline points="105,30 60,50"/><line x1="60" y1="50" x2="60" y2="57"/><line x1="97" y1="34" x2="97" y2="48"/><ellipse cx="97" cy="54" rx="6" ry="6"/></svg>
     <svg class="bg-svg scatter3" viewBox="0 0 64 48"><circle cx="16" cy="16" r="12"/><circle cx="40" cy="16" r="12"/><path d="M8,40 Q16,32 24,40 Q32,48 40,40 Q48,32 56,40"/><line x1="8" y1="40" x2="8" y2="48"/><line x1="56" y1="40" x2="56" y2="48"/></svg>
@@ -397,11 +418,23 @@
         <div class="impact-desc">
           These students embody the spirit of perseverance and with our foundation’s support, are charting courses that will touch countless lives.
         </div>
+        <div class="impact-temple">
+          In addition to supporting students, our foundation is also dedicated to preserving cultural and spiritual heritage. We have made donations to temples in India, helping to maintain these centers of tradition, spirituality, and community for future generations.
+        </div>
       </div>
     </div>
-    <!-- How to Apply Section (Initially hidden, blank) -->
+    <!-- How to Apply Section (Initially hidden) -->
     <div id="apply-section" class="hidden-section">
-      <!-- Intentionally left blank for future content -->
+      <div class="coming-soon">Coming Soon</div>
+    </div>
+    <!-- Donate Section (Initially hidden, can add more info) -->
+    <div id="donate-section" class="hidden-section">
+      <div class="section">
+        <div class="section-title">Donate</div>
+        <div style="text-align:center; color:#3949ab; font-size:1.23rem; font-family:'Quicksand',Arial,sans-serif; margin:2.7rem 0;">
+          Coming soon: Support our mission to uplift communities and preserve cultural heritage. Please check back for donation options!
+        </div>
+      </div>
     </div>
     <div style="text-align:center; color:#757de8; font-size:1.05rem; margin-top:2.2rem; font-family:'Quicksand',Arial,sans-serif;">
       © 2025 Mavis Legacy Foundation. All rights reserved.
@@ -412,17 +445,21 @@
     const navHome = document.getElementById('nav-home');
     const navImpact = document.getElementById('nav-impact');
     const navApply = document.getElementById('nav-apply');
+    const navDonate = document.getElementById('nav-donate');
     const homepageSection = document.getElementById('homepage-section');
     const impactSection = document.getElementById('impact-section');
     const applySection = document.getElementById('apply-section');
+    const donateSection = document.getElementById('donate-section');
     navHome.addEventListener('click', function(e) {
       e.preventDefault();
       navHome.classList.add('active');
       navImpact.classList.remove('active');
       navApply.classList.remove('active');
+      navDonate.classList.remove('active');
       homepageSection.classList.remove('hidden-section');
       impactSection.classList.add('hidden-section');
       applySection.classList.add('hidden-section');
+      donateSection.classList.add('hidden-section');
       window.scrollTo({top: 0});
     });
     navImpact.addEventListener('click', function(e) {
@@ -430,9 +467,11 @@
       navHome.classList.remove('active');
       navImpact.classList.add('active');
       navApply.classList.remove('active');
+      navDonate.classList.remove('active');
       homepageSection.classList.add('hidden-section');
       impactSection.classList.remove('hidden-section');
       applySection.classList.add('hidden-section');
+      donateSection.classList.add('hidden-section');
       window.scrollTo({top: 0});
     });
     navApply.addEventListener('click', function(e) {
@@ -440,9 +479,23 @@
       navHome.classList.remove('active');
       navImpact.classList.remove('active');
       navApply.classList.add('active');
+      navDonate.classList.remove('active');
       homepageSection.classList.add('hidden-section');
       impactSection.classList.add('hidden-section');
       applySection.classList.remove('hidden-section');
+      donateSection.classList.add('hidden-section');
+      window.scrollTo({top: 0});
+    });
+    navDonate.addEventListener('click', function(e) {
+      e.preventDefault();
+      navHome.classList.remove('active');
+      navImpact.classList.remove('active');
+      navApply.classList.remove('active');
+      navDonate.classList.add('active');
+      homepageSection.classList.add('hidden-section');
+      impactSection.classList.add('hidden-section');
+      applySection.classList.add('hidden-section');
+      donateSection.classList.remove('hidden-section');
       window.scrollTo({top: 0});
     });
   </script>
