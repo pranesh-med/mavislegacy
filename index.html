@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Mavis Legacy Foundation</title>
-  <!-- Logo should go in the body, not head! -->
   <!-- Google Fonts for Enthusiastic Look -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Quicksand:wght@600&display=swap" rel="stylesheet">
   <style>
@@ -45,18 +44,22 @@
       right: 0;
       justify-content: flex-end;
     }
+    .side-svg,
+    .bg-svg {
+      /* Use the same color and opacity for all SVGs */
+      stroke: #b0c4e8;
+      opacity: 0.45;
+      fill: none;
+      stroke-width: 3px;
+      background: none;
+      pointer-events: none;
+      transition: opacity 0.1s;
+    }
     .side-svg {
       position: absolute;
-      opacity: 0.45; /* more visible but still gentle */
       width: 170px;
       height: auto;
-      stroke: #8db7e6; /* a gentle but more visible light blue */
-      fill: none;
-      stroke-width: 3.2px;
-      filter: none;
       z-index: 1;
-      background: none;
-      transition: opacity 0.1s;
     }
     .svg-graduation {
       top: 28%;
@@ -66,13 +69,11 @@
       top: 20%;
       left: 108px;
       width: 55px;
-      stroke-width: 3px;
     }
     .svg-people {
       bottom: 23%;
       left: 13px;
       width: 140px;
-      stroke-width: 2.9px;
     }
     .right-decoration .svg-graduation,
     .right-decoration .svg-star {
@@ -87,7 +88,7 @@
       right: 13px;
       transform: scaleX(-1);
     }
-    /* --- New: Background SVGs sprinkled around the page --- */
+    /* --- Sprinkled Background SVGs --- */
     .background-svg-decoration {
       position: fixed;
       inset: 0;
@@ -98,75 +99,16 @@
     }
     .bg-svg {
       position: absolute;
-      stroke: #b5c6e0;
-      opacity: 0.33;
-      fill: none;
-      stroke-width: 3.1px;
-      pointer-events: none;
     }
-    .star1 {
-      top: 7vh;
-      left: 13vw;
-      width: 65px;
-      height: 65px;
-      transform: rotate(-8deg);
-    }
-    .cap1 {
-      top: 18vh;
-      left: 15vw;
-      width: 170px;
-      height: 90px;
-      transform: rotate(-4deg);
-    }
-    .people1 {
-      top: 54vh;
-      left: 9vw;
-      width: 105px;
-      height: 80px;
-      transform: rotate(0deg);
-    }
-    .star2 {
-      top: 44vh;
-      right: 18vw;
-      width: 45px;
-      height: 45px;
-      transform: rotate(15deg);
-    }
-    .cap2 {
-      bottom: 17vh;
-      right: 14vw;
-      width: 120px;
-      height: 65px;
-      transform: rotate(7deg);
-    }
-    .people2 {
-      bottom: 9vh;
-      right: 13vw;
-      width: 95px;
-      height: 70px;
-      transform: rotate(-4deg);
-    }
-    .star3 {
-      top: 70vh;
-      left: 16vw;
-      width: 36px;
-      height: 36px;
-      transform: rotate(-18deg);
-    }
-    .cap3 {
-      top: 60vh;
-      right: 13vw;
-      width: 80px;
-      height: 44px;
-      transform: rotate(13deg);
-    }
-    .people3 {
-      top: 33vh;
-      right: 11vw;
-      width: 80px;
-      height: 50px;
-      transform: rotate(10deg);
-    }
+    .star1 { top: 7vh; left: 13vw; width: 65px; height: 65px; transform: rotate(-8deg);}
+    .cap1 { top: 18vh; left: 15vw; width: 170px; height: 90px; transform: rotate(-4deg);}
+    .people1 { top: 54vh; left: 9vw; width: 105px; height: 80px;}
+    .star2 { top: 44vh; right: 18vw; width: 45px; height: 45px; transform: rotate(15deg);}
+    .cap2 { bottom: 17vh; right: 14vw; width: 120px; height: 65px; transform: rotate(7deg);}
+    .people2 { bottom: 9vh; right: 13vw; width: 95px; height: 70px;}
+    .star3 { top: 70vh; left: 16vw; width: 36px; height: 36px; transform: rotate(-18deg);}
+    .cap3 { top: 60vh; right: 13vw; width: 80px; height: 44px; transform: rotate(13deg);}
+    .people3 { top: 33vh; right: 11vw; width: 80px; height: 50px;}
     @media (max-width: 1050px) {
       .side-decoration { display: none; }
       .background-svg-decoration { display: none; }
@@ -340,7 +282,7 @@
   </style>
 </head>
 <body>
-  <!-- Background SVGs sprinkled around the screen -->
+  <!-- Sprinkled background SVGs -->
   <div class="background-svg-decoration">
     <svg class="bg-svg star1" viewBox="0 0 48 48">
       <polygon points="24,6 29,19 42,24 29,29 24,42 19,29 6,24 19,19" stroke-linejoin="round"/>
