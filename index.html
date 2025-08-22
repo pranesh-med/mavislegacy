@@ -299,7 +299,7 @@
       .section,
       .impact-section,
       .motivation {
-        padding: 1.2rem 5vw;
+        padding: 1.2rem 5vw; /* More side space for mobile */
         max-width: 95vw;
         width: 95vw;
         margin-left: auto;
@@ -307,8 +307,25 @@
       }
       table, th, td { font-size: 0.90rem; }
       .section-title, .impact-title { font-size: 1.15rem; }
-      .logo { width: 120px; }  /* <--- Bigger logo on mobile! */
+      .logo { width: 120px; }  /* Bigger logo on mobile */
       .coming-soon { font-size: 1.3rem; }
+      /* BEGIN: Make real impact table look better on mobile */
+      .impact-section table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 1.02rem;
+      }
+      .impact-section th, .impact-section td {
+        white-space: nowrap;
+        min-width: 120px;
+        word-break: normal;
+        overflow-wrap: normal;
+        text-align: left;
+        padding: 0.8rem 0.7rem;
+      }
+      /* END */
     }
     .background-svg-decoration {
       position: fixed;
