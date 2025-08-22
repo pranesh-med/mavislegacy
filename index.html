@@ -309,9 +309,46 @@
     .outer7 { bottom: 6vh; left: 5vw; width: 80px; height: 80px; }
     .outer8 { bottom: 2vh; left: 86vw; width: 70px; height: 70px; }
     .outer9 { bottom: 7vh; right: 3vw; width: 60px; height: 60px; }
+    @media (max-width: 1050px) {
+      .nav-menu {
+        display: none;
+      }
+      #hamburger-menu {
+        display: block;
+        position: fixed;
+        top: 24px;
+        left: 18px;
+        z-index: 100;
+        background: #e6eefa;
+        padding: 8px 14px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(60,60,100,0.09);
+      }
+      .mobile-nav-open .nav-menu {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 230px;
+        background: rgba(230,238,255,0.97);
+        box-shadow: 4px 0 20px 0 rgba(60,60,100,0.08);
+        z-index: 200;
+        animation: slideIn .3s cubic-bezier(.17,.67,.83,.67);
+      }
+    }
+    @keyframes slideIn {
+      from { left: -220px; opacity: 0; }
+      to { left: 0; opacity: 1; }
+    }
+
   </style>
 </head>
 <body>
+  <div id="hamburger-menu" style="display:none;">
+    <span style="font-size:2.5rem;cursor:pointer;">&#9776;</span>
+  </div>
   <!-- Navigation menu -->
   <nav class="nav-menu">
     <h2>Menu</h2>
@@ -497,6 +534,16 @@
       applySection.classList.add('hidden-section');
       donateSection.classList.remove('hidden-section');
       window.scrollTo({top: 0});
+    });
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    hamburger.addEventListener('click', function() {
+      document.body.classList.toggle('mobile-nav-open');
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.body.classList.remove('mobile-nav-open');
+      });
     });
   </script>
 </body>
