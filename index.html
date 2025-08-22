@@ -293,7 +293,15 @@
     }
     @media (max-width: 700px) {
       .main-title { font-size: 2.1rem; }
-      .section, .impact-section, .motivation { padding: 1.2rem 1vw; max-width: 100vw; width: 100vw; }
+      .section,
+      .impact-section,
+      .motivation {
+        padding: 1.2rem 5vw;  /* More side space for mobile */
+        max-width: 95vw;
+        width: 95vw;
+        margin-left: auto;
+        margin-right: auto;
+      }
       table, th, td { font-size: 0.90rem; }
       .section-title, .impact-title { font-size: 1.15rem; }
       .logo { width: 70px; }
